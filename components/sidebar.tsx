@@ -19,7 +19,7 @@ const routes = [
     color: "text-sky-500",
   },
   {
-    label: "会話する",
+    label: "Chat",
     icon: MessageSquare,
     href: "/conversation",
     color: "text-violet-500",

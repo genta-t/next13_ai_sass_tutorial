@@ -8,7 +8,7 @@ const DashboardPage = () => {
   const router = useRouter();
   const tools = [
     {
-      label: "会話する",
+      label: "Chat",
       icon: MessageSquare,
       href: "/conversation",
       color: "text-violet-500",
