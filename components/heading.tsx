@@ -1,5 +1,3 @@
-import { UserButton } from "@clerk/nextjs";
-import MobileSidebar from "./mobile-sidebar";
 import { TypeHeadingProps } from "@/lib/types";
 import { cn } from "@/lib/utils";
 

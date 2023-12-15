@@ -7,3 +7,7 @@ export type TypeHeadingProps = {
   iconColor?: string;
   bgColor?: string;
 }
+
+export type TypeEmptyProps = {
+  label: string;
+}
