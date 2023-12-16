@@ -11,3 +11,11 @@ export type TypeHeadingProps = {
 export type TypeEmptyProps = {
   label: string;
 }
+
+export type TypeSlideBarProps = {
+  apiLimitCount: number;
+}
+
+export type TypeFreeCounterProps = {
+  apiLimitCount: number;
+}
