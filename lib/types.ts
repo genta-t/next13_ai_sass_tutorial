@@ -13,9 +13,9 @@ export type TypeEmptyProps = {
 }
 
 export type TypeSlideBarProps = {
-  apiLimitCount: number;
+  apiLimitCount?: number;
 }
 
 export type TypeFreeCounterProps = {
-  apiLimitCount: number;
+  apiLimitCount?: number;
 }
