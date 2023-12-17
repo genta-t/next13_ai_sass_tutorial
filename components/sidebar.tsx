@@ -1,62 +1,12 @@
 "use client"
 import Link from "next/link";
 import Image from "next/image";
-import { Montserrat } from "next/font/google";
 import { cn } from "@/lib/utils";
-import { Code, ImageIcon, LayoutDashboard, MessageSquare, Music, Settings, VideoIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { TypeApiLimitCountProps } from "@/lib/types";
 import FreeCounter from "./free-counter";
-
-const montserrat = Montserrat({
-  weight: "600",
-  subsets: ["latin"]
-});
-
-const routes = [
-  {
-    label: "ダッシュボード",
-    icon: LayoutDashboard,
-    href: "/dashboard",
-    color: "text-sky-500",
-  },
-  {
-    label: "Chat",
-    icon: MessageSquare,
-    href: "/conversation",
-    color: "text-violet-500",
-  },
-  {
-    label: "画像生成",
-    icon: ImageIcon,
-    href: "/image",
-    color: "text-pink-500",
-  },
-  {
-    label: "ビデオ生成",
-    icon: VideoIcon,
-    href: "/video",
-    color: "text-orange-500",
-  },
-  {
-    label: "音楽生成",
-    icon: Music,
-    href: "/music",
-    color: "text-green-500",
-  },
-  {
-    label: "コード生成",
-    icon: Code,
-    href: "/code",
-    color: "text-yellow-500",
-  },
-  {
-    label: "設定",
-    icon: Settings,
-    href: "/settings",
-    color: "text-gray-300",
-  },
-];
+import { routes } from "@/lib/data";
+import { montserrat } from "@/lib/fonts";
 
 const Sidebar = ({ apiLimitCount = 0, isPro = false, } : TypeApiLimitCountProps) => {
   const pathname = usePathname();
