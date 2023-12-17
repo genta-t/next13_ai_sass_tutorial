@@ -5,7 +5,7 @@ import { Montserrat } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { Code, ImageIcon, LayoutDashboard, MessageSquare, Music, Settings, VideoIcon } from "lucide-react";
 import { usePathname } from "next/navigation";
-import { TypeSlideBarProps } from "@/lib/types";
+import { TypeApiLimitCountProps } from "@/lib/types";
 import FreeCounter from "./free-counter";
 
 const montserrat = Montserrat({
@@ -58,7 +58,7 @@ const routes = [
   },
 ];
 
-const Sidebar = ({ apiLimitCount = 0 } : TypeSlideBarProps) => {
+const Sidebar = ({ apiLimitCount = 0 } : TypeApiLimitCountProps) => {
   const pathname = usePathname();
 
   return (

@@ -1,19 +1,16 @@
 "use client"
-import Link from "next/link";
-import Image from "next/image";
-import { Montserrat } from "next/font/google";
-import { cn } from "@/lib/utils";
-import { Code, ImageIcon, LayoutDashboard, MessageSquare, Music, Settings, VideoIcon, Zap } from "lucide-react";
-import { usePathname } from "next/navigation";
-import { TypeFreeCounterProps } from "@/lib/types";
+import { Zap } from "lucide-react";
+import { TypeApiLimitCountProps } from "@/lib/types";
 import { useEffect, useState } from "react";
 import { Card, CardContent } from "./ui/card";
 import { MAX_FREE_COUNTS } from "@/constants";
 import { Progress } from "./ui/progress";
 import { Button } from "./ui/button";
+import { useProModal } from "@/hooks/use-pro-modal";
 
 
-const FreeCounter = ({ apiLimitCount = 0 } : TypeFreeCounterProps) => {
+const FreeCounter = ({ apiLimitCount = 0 } : TypeApiLimitCountProps) => {
+  const proModal = useProModal();
   const [ mounted, setMounted ] = useState(false);
 
   useEffect(() => {
@@ -35,7 +32,11 @@ const FreeCounter = ({ apiLimitCount = 0 } : TypeFreeCounterProps) => {
               value={(apiLimitCount / MAX_FREE_COUNTS) * 100}
             />
           </div>
-          <Button className="w-full" variant="premium">
+          <Button
+            className="w-full"
+            variant="premium"
+            onClick={proModal.onOpen}
+          >
             アップグレード<Zap className="w-4 h-4 ml-2 fill-white"/>
           </Button>
         </CardContent>
