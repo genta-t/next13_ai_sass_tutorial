@@ -9,7 +9,7 @@ import { Button } from "./ui/button";
 import { useProModal } from "@/hooks/use-pro-modal";
 
 
-const FreeCounter = ({ apiLimitCount = 0 } : TypeApiLimitCountProps) => {
+const FreeCounter = ({ apiLimitCount = 0, isPro = false, } : TypeApiLimitCountProps) => {
   const proModal = useProModal();
   const [ mounted, setMounted ] = useState(false);
 
@@ -18,6 +18,7 @@ const FreeCounter = ({ apiLimitCount = 0 } : TypeApiLimitCountProps) => {
   }, []);
 
   if (!mounted) return null;
+  if (!isPro) return null;
 
   return (
     <div className="px-3">

@@ -1,5 +1,4 @@
 import { LucideIcon } from "lucide-react";
-import { type } from "os";
 
 export type TypeHeadingProps = {
   title: string;
@@ -14,11 +13,16 @@ export type TypeEmptyProps = {
 }
 
 export type TypeApiLimitCountProps = {
-  apiLimitCount?: number;
+  apiLimitCount: number;
+  isPro: boolean;
 }
 
 export type TypeUseProModalStore = {
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
+}
+
+export type TypeSubscriptionButton = {
+  isPro: boolean;
 }

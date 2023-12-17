@@ -1,4 +1,5 @@
 import { checkApiLimit, increaseApiLimit } from "@/lib/api-limit";
+import { checkSubscription } from "@/lib/subscription";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 import { Configuration, OpenAIApi } from "openai";
@@ -26,7 +27,8 @@ export const POST = async (req: Request) => {
     };
 
     const freeTrial = await checkApiLimit();
-    if (!freeTrial) {
+    const isPro = await checkSubscription();
+    if (!freeTrial && !isPro) {
       return new NextResponse("無料回数を超えた", { status: 403 });
     }
 
@@ -35,7 +37,7 @@ export const POST = async (req: Request) => {
       messages
     });
 
-    await increaseApiLimit();
+    if (!isPro) await increaseApiLimit();
 
     return NextResponse.json(response.data.choices[0].message);
   } catch (error) {
